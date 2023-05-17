@@ -91,4 +91,14 @@ return $produits;
 
 }
 
+function getProduitById($id){
+
+    $conn = connect();
+    $requette = "SELECT * FROM produits WHERE id = $id";
+    $resultat = $conn->query($requette);
+    $produit = $resultat->fetch();
+
+    return $produit;
+}
+
 ?>
