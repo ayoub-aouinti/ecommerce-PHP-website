@@ -3,7 +3,13 @@
 include "includ/functions.php";
 
 $categories = getAllCategories();
-$produits = getAllProducts();
+
+if (!empty($_POST)){ //button search clicked
+    $produits = searchProduits($_POST['search']);
+}else{
+  $produits = getAllProducts();
+}
+
 
 ?>
 

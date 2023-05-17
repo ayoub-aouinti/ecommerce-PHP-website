@@ -28,8 +28,8 @@
                 <a class="nav-link active" aria-current="page" href="registre.php">registre</a>
               </li>
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" action="index.php" method="POST">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
           </div>
