@@ -101,4 +101,18 @@ function getProduitById($id){
     return $produit;
 }
 
+
+function AddVisiteur($data){
+  $conn = connect();
+
+  $requette = "INSERT INTO visiteur(nom,prenom,email,mp,telephone) VALUES('".$data['nom']."','".$data['prenom']."','".$data['email']."','".$data['mp']."','".$data['telephone']."')";
+  $resultat = $conn->query($requette);
+
+  if ($resultat){
+    return true;
+  }else{
+    return false;
+  }
+}
+
 ?>
