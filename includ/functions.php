@@ -115,4 +115,13 @@ function AddVisiteur($data){
   }
 }
 
+function ConnectVisiteur($data){
+  $conn = connect();
+  $requette = "SELECT * FROM visiteur WHERE email = '".$data['email']."' AND mp = '".$data['mp']."'";
+  $resultat = $conn->query($requette);
+  $visiteur = $resultat->fetch();
+  
+  return $visiteur;
+}
+
 ?>
