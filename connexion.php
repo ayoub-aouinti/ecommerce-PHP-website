@@ -7,6 +7,12 @@ $categories = getAllCategories();
 if (!empty($_POST)){ // click sur le button sauvgarder
     $visiteur = ConnectVisiteur($_POST);
     if(count($visiteur) > 0){ //utilisateur connectee
+        Session_start();
+        $_SESSION['email'] = $visiteur['email'];
+        $_SESSION['nom'] = $visiteur['nom'];
+        $_SESSION['prenom'] = $visiteur['prenom'];
+        $_SESSION['mp'] = $visiteur['mp'];
+        $_SESSION['telephone'] = $visiteur['telephone'];
         header('location:profile.php'); //redirection vers la page profile
     }
 }
