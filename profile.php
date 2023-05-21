@@ -25,6 +25,11 @@ Session_start();
 </head>
 <body>
     <h1>Bienvenue <span class="text-primary"><?php echo $_SESSION['nom']." ".$_SESSION['prenom'] ; ?></span></h1>
+    <h2>Email : <?php echo $_SESSION['email']; ?></h2>
+
+
+
+    <a href="deconnexion.php">deconnexion</a>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </html>
