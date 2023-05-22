@@ -1,10 +1,9 @@
 <?php
 Session_start();
 
-
-
-
-
+if (!isset($_SESSION['nom'])){
+    header('location:connexion.php');
+}
 
 
 
@@ -24,12 +23,26 @@ Session_start();
 
 </head>
 <body>
+
+<?php
+
+include "includ/header.php";
+
+?>
+
+<div class="container">
     <h1>Bienvenue <span class="text-primary"><?php echo $_SESSION['nom']." ".$_SESSION['prenom'] ; ?></span></h1>
     <h2>Email : <?php echo $_SESSION['email']; ?></h2>
 
+    
+</div>
 
+<?php
 
-    <a href="deconnexion.php">deconnexion</a>
+include "includ/footer.php";
+
+?>
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </html>
