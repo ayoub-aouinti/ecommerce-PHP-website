@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+
+include "../../includ/functions.php";
+$categories = getAllCategories();
+
 ?>
 
 
@@ -18,10 +22,10 @@ session_start();
     <link rel="canonical" href="https://getbootstrap.com/docs/4.1/examples/dashboard/">
 
     <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../css/dashboard.css" rel="stylesheet">
+    <link href="../../css/dashboard.css" rel="stylesheet">
   </head>
 
   <body>
@@ -47,7 +51,7 @@ session_start();
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="categories/liste.php">
+                <a class="nav-link active" href="#">
                   <span data-feather="file"></span>
                   Categories
                 </a>
@@ -71,7 +75,7 @@ session_start();
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="#">
+                <a class="nav-link" href="../profile.php">
                   <span data-feather="layers"></span>
                   Profile
                 </a>
@@ -82,15 +86,48 @@ session_start();
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Profile</h1>
+            <h1 class="h2">Liste des Categories</h1>
             <div>
-            <?php
-                    echo $_SESSION ['nom'];
-                    
-            ?>
+                <a href="ajout.php" class="btn btn-primary">Ajouter</a>
             </div>
-          </div>
 
+
+
+          </div>
+            <!--start liste-->
+            <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">nom</th>
+                    <th scope="col">description</th>
+                    <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                            $i=0;
+                            foreach($categories as $c){
+                                $i++;
+                                print'
+                                <tr>
+                                <th scope="row">'.$i.'</th>
+                                <td>'.$c['nom'].'</td>
+                                <td>'.$c['description'].'</td>
+                                <td>
+                                    <a href="http://" class="btn btn-success">Modifier</a>
+                                    <a href="http://" class="btn btn-danger">Supprimer</a>
+                                </td>
+                                </tr>';
+                            }
+
+                ?>
+                
+                </tbody>
+            </table>
+            </div>
+            <!--end liste-->
                           
             
           
@@ -104,8 +141,8 @@ session_start();
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../js/vendor/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="../../js/vendor/popper.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
 
     <!-- Icons -->
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
