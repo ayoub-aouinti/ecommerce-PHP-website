@@ -130,7 +130,7 @@ function ConnectAdmin($data){
   $conn = connect();
   $email = $data['email'];
   $mp = md5($data['mp']);
-  $requette = "SELECT * FROM Administrateur WHERE email = '$email' AND mp = '$mp'";
+  $requette = "SELECT * FROM administrateur WHERE email = '$email' AND mp = '$mp'";
   $resultat = $conn->query($requette);
   $visiteur = $resultat->fetch();
   

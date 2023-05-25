@@ -8,7 +8,7 @@ if (isset($_SESSION['nom'])){
 
 include "../includ/functions.php";
 $visiteur = true;
-
+//$categories = getAllCategories();
 
 if (!empty($_POST)){ // click sur le button sauvgarder
     $visiteur = ConnectAdmin($_POST);
