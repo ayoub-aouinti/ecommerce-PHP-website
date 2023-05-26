@@ -14,6 +14,7 @@ if (!empty($_POST)){ // click sur le button sauvgarder
     $visiteur = ConnectAdmin($_POST);
     if(is_array($visiteur) && count($visiteur) > 0){ //utilisateur connectee
         Session_start();
+        $_SESSION['id'] = $visiteur['id'];
         $_SESSION['email'] = $visiteur['email'];
         $_SESSION['nom'] = $visiteur['nom'];     
         $_SESSION['mp'] = $visiteur['mp'];
