@@ -49,7 +49,7 @@ $categories = getAllCategories();
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Liste des Categories</h1>
+            <h1 class="h2">Liste des produits</h1>
 
 
          
@@ -62,23 +62,7 @@ $categories = getAllCategories();
           </div>
             <!--start liste-->
             <div>
-            <?php if (isset($_GET['ajout']) && ($_GET['ajout']) == "ok"){
-                print'<div class="alert alert-success">
-                Categorie Ajoutee avec success
-                </div>';
-            } ?>
-
-            <?php if (isset($_GET['delete']) && ($_GET['delete']) == "ok"){
-                print'<div class="alert alert-success">
-                Categorie Supprimee avec success
-                </div>';
-            } ?>
-
-            <?php if (isset($_GET['modif']) && ($_GET['modif']) == "ok"){
-                print'<div class="alert alert-success">
-                Categorie Modifiée avec success
-                </div>';
-            } ?>
+            
             
             <table class="table">
                 <thead>
@@ -91,20 +75,6 @@ $categories = getAllCategories();
                 </thead>
                 <tbody>
                 <?php
-                            $i=0;
-                            foreach($categories as $c){
-                                $i++;
-                                print'
-                                <tr>
-                                <th scope="row">'.$i.'</th>
-                                <td>'.$c['nom'].'</td>
-                                <td>'.$c['description'].'</td>
-                                <td>
-                                    <a data-toggle="modal" data-target="#editModal'.$c['id'].'" class="btn btn-success">Modifier</a>
-                                    <a href="supprimer.php?idc='.$c['id'].'" class="btn btn-danger">Supprimer</a>
-                                </td>
-                                </tr>';
-                            }
 
                 ?>
                 
@@ -130,7 +100,7 @@ $categories = getAllCategories();
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ajout Categorie</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Ajout Produit</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
@@ -138,10 +108,16 @@ $categories = getAllCategories();
         <div class="modal-body">
             <form action="ajout.php" method="post">
                 <div class="form-group">
-                    <input type="text" name="nom" class="form-control" placeholder="nom de categorie .....">
+                    <input type="text" name="nom" class="form-control" placeholder="nom de produit .....">
                 </div>
                 <div class="form-group">
-                    <textarea name="description" class="form-control" placeholder="description de categorie ....."></textarea>
+                    <textarea name="description" class="form-control" placeholder="description de produit ....."></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="number" step="0.01" name="prix" class="form-control" placeholder="prix de produit .....">
+                </div>
+                <div class="form-group">
+                    <input type="file" name="image" class="form-control" placeholder="nom de produit .....">
                 </div>
             
         </div>
