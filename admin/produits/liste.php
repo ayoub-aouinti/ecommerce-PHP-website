@@ -106,7 +106,7 @@ $categories = getAllCategories();
             </button>
         </div>
         <div class="modal-body">
-            <form action="ajout.php" method="post">
+            <form action="ajout.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <input type="text" name="nom" class="form-control" placeholder="nom de produit .....">
                 </div>
@@ -118,8 +118,19 @@ $categories = getAllCategories();
                 </div>
                 <div class="form-group">
                     <input type="file" name="image" class="form-control" placeholder="nom de produit .....">
-                </div>
-            
+                </div> 
+                <div class="form-group">
+                  <select name="categorie" class="form-control">
+                    <?php
+
+                      foreach($categories as $index => $c)
+                      print '<option value="'.$c['id'].'">'.$c['nom'].'</option>'
+
+                    ?>
+                    
+                  </select>
+                </div> 
+                <input type="hidden" name="createur" value="<?php echo $_SESSION['id']; ?>" />         
         </div>
         <div class="modal-footer">
             <button type="submit" class="btn btn-primary">Ajouter</button>
